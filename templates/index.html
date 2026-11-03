@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Manhattan Population by Neighborhood</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid #ddd; }
+    td.n, th.n { text-align: right; }
+  </style>
+</head>
+<body>
+  <h1>Manhattan Population by Neighborhood</h1>
+  <p><strong>Total population:</strong> {{ "{:,}".format(total) }}
+     &middot; <strong>Neighborhoods (NTAs):</strong> {{ count }}
+     &middot; <strong>Avg per NTA:</strong> {{ "{:,.0f}".format(avg) }}</p>
+  <table>
+    <tr><th>Neighborhood</th><th class="n">Population</th></tr>
+    {% for name, pop in rows %}
+    <tr><td>{{ name }}</td><td class="n">{{ "{:,}".format(pop) }}</td></tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
